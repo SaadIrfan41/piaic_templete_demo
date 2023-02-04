@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { usePathname } from 'next/navigation'
 import Link from 'next/link'
 
-const navigation = [{ name: 'Available Programs' }, { name: 'About' }]
+const navigation = [{ name: 'Available Programs' }]
 const Navbar = () => {
   const path = usePathname()
 
@@ -42,11 +42,7 @@ const Navbar = () => {
                 <a
                   key={item.name}
                   href={`${
-                    item.name === 'Available Programs'
-                      ? path !== '/'
-                        ? '/#courses-section'
-                        : '#courses-section'
-                      : '/about'
+                    path !== '/' ? '/#courses-section' : '#courses-section'
                   }`}
                   className={`text-base font-medium   ${
                     path !== '/'
@@ -73,7 +69,7 @@ const Navbar = () => {
       >
         <Popover.Panel
           focus
-          className='absolute inset-x-0 top-0 z-50 origin-top transform p-2 transition md:hidden'
+          className='absolute inset-x-0 top-0 z-50 origin-top transform p-2 transition lg:hidden'
         >
           <div className='overflow-hidden rounded-lg bg-white shadow-md ring-1 ring-black ring-opacity-5'>
             <div className='flex items-center justify-between px-5 pt-4'>
@@ -93,33 +89,12 @@ const Navbar = () => {
                   <a
                     key={item.name}
                     href={`${
-                      item.name === 'Available Programs'
-                        ? path !== '/'
-                          ? '/#courses-section'
-                          : '#courses-section'
-                        : '/about'
+                      path !== '/' ? '/#courses-section' : '#courses-section'
                     }`}
                     className='block rounded-md px-3 py-2 text-base font-medium text-gray-900 hover:bg-gray-50'
                   >
                     {item.name}
                   </a>
-                  //   <a
-                  //   key={item.name}
-                  //   href={`${
-                  //     item.name === 'Available Programs'
-                  //       ? path !== '/'
-                  //         ? '/#courses-section'
-                  //         : '#courses-section'
-                  //       : '/about'
-                  //   }`}
-                  //   className={`text-base font-medium   ${
-                  //     path !== '/'
-                  //       ? 'text-black after:bg-gray-700 '
-                  //       : 'text-white after:bg-white hover:text-gray-300'
-                  //   } relative after:absolute after:left-0 after:-bottom-[5px] after:h-[3px] after:w-[0%] after:rounded-xl  after:duration-300 hover:after:w-full `}
-                  // >
-                  //   {item.name}
-                  // </a>
                 ))}
               </div>
             </div>
